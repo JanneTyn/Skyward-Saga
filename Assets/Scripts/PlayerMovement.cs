@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class NewBehaviourScript : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     public CharacterController characterController;
+    ControllerColliderHit playerCollider;
     public float _gravity = 0.3f;
     public float _playerspeedActual = 10;
     public float _playerspeed = 10;
@@ -21,6 +22,10 @@ public class NewBehaviourScript : MonoBehaviour
     private bool doublejump = false;
     private bool doublejumpUsed = false;
     private bool directionChanged = false;
+    private bool dayChanged = false;
+    private bool sunActived = true;
+    public bool ceilingHit = false;
+    public DayNightChange daynight;
 
 
     // Start is called before the first frame update
@@ -33,13 +38,12 @@ public class NewBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         horizontalInput = Input.GetAxis("Horizontal");
 
         if (characterController.isGrounded == true)
         {
             //Debug.Log("Isgrounded");
-            if (Input.GetKey(KeyCode.W))
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
                 jump = true;              
             }
@@ -54,16 +58,26 @@ public class NewBehaviourScript : MonoBehaviour
         else
         {
             jump = false;
-            if (doublejumpUsed == false && Input.GetKeyDown(KeyCode.W))
+            if (doublejumpUsed == false && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)))
             {
                 doublejump = true;
             }           
         }           
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            dayChanged = true;
+        }
     }
 
     private void FixedUpdate()
     {
-
+        if (dayChanged == true)
+        {
+            sunActived = !sunActived;
+            daynight.DayChange(sunActived);
+            dayChanged = false;
+        }
         
         Vector3 direction = new Vector3(horizontalInput, 0, 0);
         
@@ -121,7 +135,7 @@ public class NewBehaviourScript : MonoBehaviour
                 }
                 _yvelocity += 10;
                 if (_yvelocity > 7) { _yvelocity = 7; }
-                else if (_yvelocity < 5) { _yvelocity = 5; }
+                else if (_yvelocity < 5) { _yvelocity = 7; }
                 /*
                 if (_yvelocity > 0)
                 {
@@ -143,6 +157,12 @@ public class NewBehaviourScript : MonoBehaviour
             if (_gravity > _gravityScaler) _gravity = _gravityScaler;
             _yvelocity -= _gravity;
             //Debug.Log(_gravity);
+
+            if (ceilingHit)
+            {
+                _yvelocity = 0;
+                ceilingHit = false;
+            }
         }
 
         Vector3 velocity = direction * _playerspeedActual;
@@ -151,8 +171,6 @@ public class NewBehaviourScript : MonoBehaviour
 
         oldXPosition = transform.position.x;
 
-        characterController.Move(velocity * Time.deltaTime);
-
-        
+        characterController.Move(velocity * Time.deltaTime);       
     }
 }

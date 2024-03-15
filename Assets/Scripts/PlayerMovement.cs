@@ -31,11 +31,11 @@ public class NewBehaviourScript : MonoBehaviour
 
         if (characterController.isGrounded == true)
         {
-            Debug.Log("Isgrounded");
+            //Debug.Log("Isgrounded");
             if (Input.GetKeyDown(KeyCode.W))
             {
                 _yvelocity = _jumpheight;
-                _gravityScaler = 0.05f;
+                _gravityScaler = 0.15f;
             }
             else
             {
@@ -47,12 +47,12 @@ public class NewBehaviourScript : MonoBehaviour
         }
         else
         {
-            Debug.Log("in air");
+            //Debug.Log("in air");
             _timeOnAir += Time.deltaTime;
             _gravity = _gravity + Time.deltaTime;
             if (_gravity > _gravityScaler) _gravity = _gravityScaler;
             _yvelocity -= _gravity;
-            Debug.Log(_gravity);
+            //Debug.Log(_gravity);
         }
 
         velocity.y = _yvelocity;

@@ -603,9 +603,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterController: {fileID: 471777330}
   _gravity: 0.5
-  _playerspeed: 13
-  _jumpheight: 13
-  _yvelocity: 1
+  _playerspeedActual: 10
+  _playerspeed: 10
+  _jumpheight: 7
+  _yvelocity: 0
 --- !u!143 &471777330
 CharacterController:
   m_ObjectHideFlags: 0

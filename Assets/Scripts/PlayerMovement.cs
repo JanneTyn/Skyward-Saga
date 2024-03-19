@@ -26,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
     private bool sunActived = true;
     public bool ceilingHit = false;
     public DayNightChange daynight;
+    public KukkaPlatformScript kukkaplatform;
+    public SaniaisSiltaScript saniaissilta;
 
 
     // Start is called before the first frame update
@@ -43,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
         if (characterController.isGrounded == true)
         {
             //Debug.Log("Isgrounded");
-            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
             {
                 jump = true;              
             }
@@ -76,6 +78,8 @@ public class PlayerMovement : MonoBehaviour
         {
             sunActived = !sunActived;
             daynight.DayChange(sunActived);
+            kukkaplatform.FlowerChange(sunActived);
+            saniaissilta.BridgeChange(sunActived);
             dayChanged = false;
         }
         
@@ -95,12 +99,12 @@ public class PlayerMovement : MonoBehaviour
             if (jump)
             {
                 _yvelocity = _jumpheight;
-                _gravityScaler = 0.5f;
+                _gravityScaler = 0.25f;
             }
             else
             {
                 _yvelocity = -5.0f;
-                _gravityScaler = 0.5f;
+                _gravityScaler = 0.25f;
             }
 
             if (doublejumpUsed)
@@ -124,7 +128,7 @@ public class PlayerMovement : MonoBehaviour
             }
             if (doublejump)
             {
-                float playerspeedScale = _yvelocity / 4;
+                float playerspeedScale = _yvelocity / 8;
                 if ( playerspeedScale > 0)
                 {
                     _playerspeedActual += playerspeedScale + 2;
@@ -133,9 +137,9 @@ public class PlayerMovement : MonoBehaviour
                 {
                     _playerspeedActual += 2;
                 }
-                _yvelocity += 10;
-                if (_yvelocity > 7) { _yvelocity = 7; }
-                else if (_yvelocity < 5) { _yvelocity = 7; }
+                _yvelocity += 15;
+                if (_yvelocity > 12) { _yvelocity = 12; }
+                else if (_yvelocity < 8) { _yvelocity = 12; }
                 /*
                 if (_yvelocity > 0)
                 {
@@ -146,7 +150,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     _yvelocity = _jumpheight;
                 } */
-                _gravityScaler = 0.5f;
+                _gravityScaler = 0.25f;
                 doublejumpUsed = true;
                 doublejump = false;
             }
@@ -170,6 +174,13 @@ public class PlayerMovement : MonoBehaviour
         velocity.y = _yvelocity;
 
         oldXPosition = transform.position.x;
+
+        if (transform.position.z != 0)
+        {
+            Vector3 pos = transform.position;
+            pos.z = 0;
+            transform.position = pos;
+        }
 
         characterController.Move(velocity * Time.deltaTime);       
     }

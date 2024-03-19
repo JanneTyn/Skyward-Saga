@@ -24,17 +24,14 @@ public class DayNightChange : MonoBehaviour
     }
 
     public void DayChange(bool sunActive)
-    {
-        Debug.Log("111");
+    {       
         if (sunActive)
         {
             sunmoonTexture.sprite = sunTexture;
-            Debug.Log("222");
         }
         else
         {
             sunmoonTexture.sprite = moonTexture;
-            Debug.Log("333");
         }
     }
 }

@@ -636,40 +636,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1efd43f9066e8584eaf42bbc58e24904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &459408595 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5057802044790276630, guid: 24d9f95b386d6ee46bda3f86e628ac83,
-    type: 3}
-  m_PrefabInstance: {fileID: 1721468010492921171}
-  m_PrefabAsset: {fileID: 0}
---- !u!143 &459408597 stripped
-CharacterController:
-  m_CorrespondingSourceObject: {fileID: 5190814661467576901, guid: 24d9f95b386d6ee46bda3f86e628ac83,
-    type: 3}
-  m_PrefabInstance: {fileID: 1721468010492921171}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &459408602
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 459408595}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34a5566ecf72cdd4d9c40667f4d80448, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterController: {fileID: 459408597}
-  _gravity: 0.3
-  _playerspeedActual: 10
-  _playerspeed: 8
-  _jumpheight: 12
-  _yvelocity: 1
-  ceilingHit: 0
-  daynight: {fileID: 1510948557}
-  kukkaplatform: {fileID: 444224433}
-  saniaissilta: {fileID: 1669371663}
 --- !u!1 &658382306
 GameObject:
   m_ObjectHideFlags: 0
@@ -2010,21 +1976,6 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2793259335996352800, guid: 24d9f95b386d6ee46bda3f86e628ac83,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2793259335996352800, guid: 24d9f95b386d6ee46bda3f86e628ac83,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2793259335996352800, guid: 24d9f95b386d6ee46bda3f86e628ac83,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -12
-      objectReference: {fileID: 0}
     - target: {fileID: 3696896472329257885, guid: 24d9f95b386d6ee46bda3f86e628ac83,
         type: 3}
       propertyPath: daynight
@@ -2045,15 +1996,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3696896472329257885, guid: 24d9f95b386d6ee46bda3f86e628ac83, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5057802044790276630, guid: 24d9f95b386d6ee46bda3f86e628ac83,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 459408602}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24d9f95b386d6ee46bda3f86e628ac83, type: 3}
 --- !u!33 &3469287837415654232
 MeshFilter:
@@ -2123,6 +2069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72300a0d7e1959341b4d93cffc3d8c96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0.08
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

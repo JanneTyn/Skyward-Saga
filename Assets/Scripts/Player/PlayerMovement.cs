@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class NewBehaviourScript : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     public CharacterController characterController;
+    ControllerColliderHit playerCollider;
     public float _gravity = 0.3f;
     public float _playerspeedActual = 10;
     public float _playerspeed = 10;
@@ -21,6 +22,12 @@ public class NewBehaviourScript : MonoBehaviour
     private bool doublejump = false;
     private bool doublejumpUsed = false;
     private bool directionChanged = false;
+    private bool dayChanged = false;
+    private bool sunActived = true;
+    public bool ceilingHit = false;
+    public DayNightChange daynight;
+    public KukkaPlatformScript kukkaplatform;
+    public SaniaisSiltaScript saniaissilta;
 
 
     // Start is called before the first frame update
@@ -33,14 +40,12 @@ public class NewBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
         horizontalInput = Input.GetAxis("Horizontal");
 
         if (characterController.isGrounded == true)
         {
             //Debug.Log("Isgrounded");
-            if (Input.GetKey(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
             {
                 jump = true;              
             }
@@ -55,16 +60,28 @@ public class NewBehaviourScript : MonoBehaviour
         else
         {
             jump = false;
-            if (doublejumpUsed == false && Input.GetKeyDown(KeyCode.W))
+            if (doublejumpUsed == false && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)))
             {
                 doublejump = true;
             }           
         }           
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            dayChanged = true;
+        }
     }
 
     private void FixedUpdate()
     {
-
+        if (dayChanged == true)
+        {
+            sunActived = !sunActived;
+            daynight.DayChange(sunActived);
+            kukkaplatform.FlowerChange(sunActived);
+            saniaissilta.BridgeChange(sunActived);
+            dayChanged = false;
+        }
         
         Vector3 direction = new Vector3(horizontalInput, 0, 0);
         
@@ -82,12 +99,12 @@ public class NewBehaviourScript : MonoBehaviour
             if (jump)
             {
                 _yvelocity = _jumpheight;
-                _gravityScaler = 0.5f;
+                _gravityScaler = 0.25f;
             }
             else
             {
                 _yvelocity = -5.0f;
-                _gravityScaler = 0.5f;
+                _gravityScaler = 0.25f;
             }
 
             if (doublejumpUsed)
@@ -111,7 +128,7 @@ public class NewBehaviourScript : MonoBehaviour
             }
             if (doublejump)
             {
-                float playerspeedScale = _yvelocity / 4;
+                float playerspeedScale = _yvelocity / 8;
                 if ( playerspeedScale > 0)
                 {
                     _playerspeedActual += playerspeedScale + 2;
@@ -120,9 +137,9 @@ public class NewBehaviourScript : MonoBehaviour
                 {
                     _playerspeedActual += 2;
                 }
-                _yvelocity += 10;
-                if (_yvelocity > 7) { _yvelocity = 7; }
-                else if (_yvelocity < 5) { _yvelocity = 5; }
+                _yvelocity += 15;
+                if (_yvelocity > 12) { _yvelocity = 12; }
+                else if (_yvelocity < 8) { _yvelocity = 12; }
                 /*
                 if (_yvelocity > 0)
                 {
@@ -133,7 +150,7 @@ public class NewBehaviourScript : MonoBehaviour
                 {
                     _yvelocity = _jumpheight;
                 } */
-                _gravityScaler = 0.5f;
+                _gravityScaler = 0.25f;
                 doublejumpUsed = true;
                 doublejump = false;
             }
@@ -144,6 +161,12 @@ public class NewBehaviourScript : MonoBehaviour
             if (_gravity > _gravityScaler) _gravity = _gravityScaler;
             _yvelocity -= _gravity;
             //Debug.Log(_gravity);
+
+            if (ceilingHit)
+            {
+                _yvelocity = 0;
+                ceilingHit = false;
+            }
         }
 
         Vector3 velocity = direction * _playerspeedActual;
@@ -152,8 +175,13 @@ public class NewBehaviourScript : MonoBehaviour
 
         oldXPosition = transform.position.x;
 
-        characterController.Move(velocity * Time.deltaTime);
+        if (transform.position.z != 0)
+        {
+            Vector3 pos = transform.position;
+            pos.z = 0;
+            transform.position = pos;
+        }
 
-        
+        characterController.Move(velocity * Time.deltaTime);       
     }
 }

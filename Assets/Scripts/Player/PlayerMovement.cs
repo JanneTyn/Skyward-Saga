@@ -25,9 +25,7 @@ public class PlayerMovement : MonoBehaviour
     private bool dayChanged = false;
     private bool sunActived = true;
     public bool ceilingHit = false;
-    public DayNightChange daynight;
-    public KukkaPlatformScript kukkaplatform;
-    public SaniaisSiltaScript saniaissilta;
+    public bool isGrounded = false;
 
 
     // Start is called before the first frame update
@@ -43,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
 
         if (characterController.isGrounded == true)
-        {
+        {          
             //Debug.Log("Isgrounded");
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
             {
@@ -65,23 +63,10 @@ public class PlayerMovement : MonoBehaviour
                 doublejump = true;
             }           
         }           
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            dayChanged = true;
-        }
     }
 
     private void FixedUpdate()
     {
-        if (dayChanged == true)
-        {
-            sunActived = !sunActived;
-            daynight.DayChange(sunActived);
-            kukkaplatform.FlowerChange(sunActived);
-            saniaissilta.BridgeChange(sunActived);
-            dayChanged = false;
-        }
         
         Vector3 direction = new Vector3(horizontalInput, 0, 0);
         
@@ -103,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                _yvelocity = -5.0f;
+                _yvelocity = -1.0f;
                 _gravityScaler = 0.25f;
             }
 
@@ -162,11 +147,29 @@ public class PlayerMovement : MonoBehaviour
             _yvelocity -= _gravity;
             //Debug.Log(_gravity);
 
-            if (ceilingHit)
+            if ((characterController.collisionFlags & CollisionFlags.Above) != 0)
             {
-                _yvelocity = 0;
-                ceilingHit = false;
+                if (_yvelocity > 0)
+                {
+                    _yvelocity = -2;
+                }
             }
+
+            if (_yvelocity < -25) { _yvelocity = -25; }
+        }
+
+        var ray = new Ray(transform.position, Vector3.down);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, 0.3f))
+        {
+            if (hit.collider.tag == "Ground")
+            {
+                isGrounded = true;
+            }
+        }
+        else
+        {
+            isGrounded = false;
         }
 
         Vector3 velocity = direction * _playerspeedActual;
@@ -177,8 +180,9 @@ public class PlayerMovement : MonoBehaviour
 
         if (transform.position.z != 0)
         {
+            Debug.Log("Moved in Z coordinate!");
             Vector3 pos = transform.position;
-            pos.z = 0;
+            pos.z = 0.00f;
             transform.position = pos;
         }
 

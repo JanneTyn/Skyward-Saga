@@ -9,8 +9,9 @@ public class KukkaPlatformScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        varsi = GameObject.Find("Varsi");
-        kukka = GameObject.Find("Kukka");
+        //varsi = GameObject.Find("Varsi");
+        //varsi = GameObject.Find("Varsi");
+        //kukka = GameObject.Find("Kukka");
     }
 
     // Update is called once per frame
@@ -23,6 +24,8 @@ public class KukkaPlatformScript : MonoBehaviour
     {
         if (sunActive)
         {
+            Debug.Log("Varsi: " + varsi.transform.position);
+            Debug.Log("Kukka: " + kukka.transform.position);
             varsi.SetActive(true);
             kukka.SetActive(true);
         }

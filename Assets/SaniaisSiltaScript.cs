@@ -9,8 +9,8 @@ public class SaniaisSiltaScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        silta1 = GameObject.Find("Silta1");
-        silta2 = GameObject.Find("Silta2");
+        //silta1 = GameObject.Find("Silta1");
+        //silta2 = GameObject.Find("Silta2");
         silta1.SetActive(false);
         silta2.SetActive(false);
     }

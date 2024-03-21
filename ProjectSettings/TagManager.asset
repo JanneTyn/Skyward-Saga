@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemy
   - Ground
+  - KukkaPlatform
+  - SaniaisSilta
   layers:
   - Default
   - TransparentFX

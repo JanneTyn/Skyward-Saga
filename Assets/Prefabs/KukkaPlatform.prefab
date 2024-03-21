@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 8334999196339401936}
   m_Layer: 0
   m_Name: KukkaPlatform
-  m_TagString: Untagged
+  m_TagString: KukkaPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -9,10 +9,17 @@ public class DayNightChangeHandler : MonoBehaviour
     public DayNightChange daynight;
     public KukkaPlatformScript kukkaplatform;
     public SaniaisSiltaScript saniaissilta;
+    public VineScript vine;
+    public GameObject[] kukat;
+    public GameObject[] sillat;
+    public GameObject[] vines;
     // Start is called before the first frame update
     void Start()
     {
         //daynight.GetComponent<DayNightChange>().DayChange(sunActived);
+        kukat = GameObject.FindGameObjectsWithTag("KukkaPlatform");
+        sillat = GameObject.FindGameObjectsWithTag("SaniaisSilta");
+        vines = GameObject.FindGameObjectsWithTag("Vine");
     }
 
     // Update is called once per frame
@@ -30,10 +37,24 @@ public class DayNightChangeHandler : MonoBehaviour
         {
             Debug.Log("Day changed!");
             sunActived = !sunActived;
-            //daynight.DayChange(sunActived);
+
+            foreach (GameObject gameObject in sillat)
+            {
+                gameObject.GetComponent<SaniaisSiltaScript>().BridgeChange(sunActived);
+            }
+
+            foreach (GameObject gameObject in kukat)
+            {
+                gameObject.GetComponent<KukkaPlatformScript>().FlowerChange(sunActived);
+                Debug.Log(gameObject.transform.position);
+            }
+
+            foreach (GameObject gameObject in vines)
+            {
+                gameObject.GetComponent<VineScript>().VineActivation(sunActived);
+            }
+            
             daynight.GetComponent<DayNightChange>().DayChange(sunActived);
-            kukkaplatform.FlowerChange(sunActived);
-            saniaissilta.BridgeChange(sunActived);
             dayChanged = false;
         }
     }

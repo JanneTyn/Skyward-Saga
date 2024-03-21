@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class KukkaPlatformScript : MonoBehaviour
 {
-    public GameObject varsi;
+    //public GameObject varsi;
     public GameObject kukka;
     // Start is called before the first frame update
     void Start()
@@ -24,14 +24,14 @@ public class KukkaPlatformScript : MonoBehaviour
     {
         if (sunActive)
         {
-            Debug.Log("Varsi: " + varsi.transform.position);
-            Debug.Log("Kukka: " + kukka.transform.position);
-            varsi.SetActive(true);
+
+            //varsi.SetActive(true);
             kukka.SetActive(true);
         }
         else
         {
-            varsi.SetActive(false); kukka.SetActive(false);
+            //varsi.SetActive(false);
+            kukka.SetActive(false);
         }
     }
 }

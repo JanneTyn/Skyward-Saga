@@ -12,11 +12,12 @@ public class CharacterRotation : MonoBehaviour
     private float currentYRotation;
     private bool turnedRight = false;
     private bool turnedLeft = false;
+    public GameObject player;
     // Start is called before the first frame update
     void Start()
     {
         currentYRotation = transform.rotation.y;
-        oldPlayerPosX = transform.parent.position.x;
+        oldPlayerPosX = player.transform.parent.position.x;
     }
 
     // Update is called once per frame
@@ -24,32 +25,37 @@ public class CharacterRotation : MonoBehaviour
     {
         currentYRotation = transform.localRotation.y;
 
-        if (transform.parent.position.x > oldPlayerPosX)
+        if (player.transform.parent.position.x > oldPlayerPosX)
         {
             turnedRight = true;
             turnedLeft = false;
 
         }
-        else if (transform.parent.position.x < oldPlayerPosX)
+        else if (player.transform.parent.position.x < oldPlayerPosX)
         {
             turnedRight = false;
             turnedLeft = true;
 
         }
         if (turnedRight)
-        {         
-                //currentYRotation -= 1;
-                transform.rotation = new Quaternion(0, -10f, 0, 0);               
+        {
+            //currentYRotation -= 1;
+            if (player.transform.localEulerAngles.y > 210f)
+            {
+                Debug.Log(player.transform.localEulerAngles.y);
+                player.transform.Rotate(0, -1, 0);
+            }
             
         }
         else if (turnedLeft)
         {
-            
-                //currentYRotation += 1;
-                //transform.localRotation = new Quaternion(0, -30f, 0, 0);
-            
+            if (player.transform.localEulerAngles.y < 330f)
+            {
+                player.transform.Rotate(0, 1, 0);
+            }
+
         }
 
-        oldPlayerPosX = transform.parent.position.x;
+        oldPlayerPosX = player.transform.parent.position.x;
     }
 }

@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public CharacterController characterController;
     ControllerColliderHit playerCollider;
+    public Animator charaAnimation;
     public float _gravity = 0.3f;
     public float _playerspeedActual = 10;
     public float _playerspeed = 10;
@@ -19,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private bool positiveXMovement = false;
     private bool negativeXMovement = false;
     private bool jump = false;
+    private bool jumpPressed = false;
     private bool doublejump = false;
     private bool doublejumpUsed = false;
     private bool directionChanged = false;
@@ -32,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         characterController.GetComponent<CharacterController>();
+        charaAnimation.GetComponent<Animator>();
         _playerspeedActual = _playerspeed;
     }
 
@@ -45,7 +48,8 @@ public class PlayerMovement : MonoBehaviour
             //Debug.Log("Isgrounded");
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
             {
-                jump = true;              
+                jump = true;
+                jumpPressed = true;
             }
             else
             {
@@ -79,6 +83,36 @@ public class PlayerMovement : MonoBehaviour
             negativeXMovement = true;
         }
 
+
+        if (jumpPressed)
+        {
+            Debug.Log("Jump");
+            charaAnimation.GetComponent<Animator>().Play("playerJump");
+        }
+        else if (Input.GetButton("Horizontal"))
+        {
+            Debug.Log("Walk");
+            if (charaAnimation.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("playerJump") == false)
+            {
+                charaAnimation.GetComponent<Animator>().Play("playerWalk");
+            }
+            else if (charaAnimation.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > charaAnimation.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length)
+            {
+                charaAnimation.GetComponent<Animator>().Play("playerWalk");
+            }
+        }
+        else
+        {
+            Debug.Log("not walking");
+            if (characterController.isGrounded == true)
+            {
+                charaAnimation.GetComponent<Animator>().Play("playerIdle");
+            }
+        }
+
+        
+
+
         if (characterController.isGrounded == true)
         {
             if (jump)
@@ -102,6 +136,8 @@ public class PlayerMovement : MonoBehaviour
             negativeXMovement = false;
             directionChanged = false;
             _playerspeedActual = _playerspeed;
+
+            jumpPressed = false;
 
         }
         else

@@ -40,18 +40,20 @@ public class CharacterRotation : MonoBehaviour
         if (turnedRight)
         {
             //currentYRotation -= 1;
-            if (player.transform.localEulerAngles.y > 210f)
+            if (player.transform.localRotation.y > 0.25f)
             {
-                Debug.Log(player.transform.localEulerAngles.y);
-                player.transform.Rotate(0, -1, 0);
+                Debug.Log(player.transform.localRotation.y);
+                player.transform.rotation = Quaternion.Euler(0f, -60f, 0f);
+                //player.transform.Rotate(0, -2, 0);
             }
             
         }
         else if (turnedLeft)
         {
-            if (player.transform.localEulerAngles.y < 330f)
+            if (player.transform.localRotation.y < 0.75f)
             {
-                player.transform.Rotate(0, 1, 0);
+                player.transform.rotation = Quaternion.Euler(0f, 60f, 0f);
+                //player.transform.Rotate(0, 2, 0);
             }
 
         }

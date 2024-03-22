@@ -86,12 +86,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (jumpPressed)
         {
-           // Debug.Log("Jump");
+            Debug.Log("Jump");
             charaAnimation.GetComponent<Animator>().Play("playerJump");
         }
         else if (Input.GetButton("Horizontal"))
         {
-            //Debug.Log("Walk");
+            Debug.Log("Walk");
             if (charaAnimation.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("playerJump") == false)
             {
                 charaAnimation.GetComponent<Animator>().Play("playerWalk");
@@ -103,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            //Debug.Log("not walking");
+            Debug.Log("not walking");
             if (characterController.isGrounded == true)
             {
                 charaAnimation.GetComponent<Animator>().Play("playerIdle");

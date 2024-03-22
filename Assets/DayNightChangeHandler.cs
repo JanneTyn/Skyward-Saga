@@ -13,7 +13,6 @@ public class DayNightChangeHandler : MonoBehaviour
     public GameObject[] kukat;
     public GameObject[] sillat;
     public GameObject[] vines;
-    public GameObject[] peikko;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +20,6 @@ public class DayNightChangeHandler : MonoBehaviour
         kukat = GameObject.FindGameObjectsWithTag("KukkaPlatform");
         sillat = GameObject.FindGameObjectsWithTag("SaniaisSilta");
         vines = GameObject.FindGameObjectsWithTag("Vine");
-        peikko = GameObject.FindGameObjectsWithTag("Enemy");
     }
 
     // Update is called once per frame
@@ -55,12 +53,7 @@ public class DayNightChangeHandler : MonoBehaviour
             {
                 gameObject.GetComponent<VineScript>().VineActivation(sunActived);
             }
-
-            foreach (GameObject gameObject in peikko)
-            {
-                gameObject.GetComponent<PeikkoScript>().PeikkoFreeze(sunActived);
-            }
-
+            
             daynight.GetComponent<DayNightChange>().DayChange(sunActived);
             dayChanged = false;
         }

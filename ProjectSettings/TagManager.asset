@@ -8,6 +8,8 @@ TagManager:
   - Ground
   - KukkaPlatform
   - SaniaisSilta
+  - Vine
+  - Checkpoint
   layers:
   - Default
   - TransparentFX

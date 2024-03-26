@@ -10054,6 +10054,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 9189092130968122439}
+  charaAnimation: {fileID: 0}
   _gravity: 0.5
   _playerspeedActual: 10
   _playerspeed: 8

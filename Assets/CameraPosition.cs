@@ -38,14 +38,14 @@ public class CameraPosition : MonoBehaviour
         {
             if (transform.localPosition.x < 4)
             {
-                transform.position = new Vector3(transform.position.x + 0.1f, transform.position.y, transform.position.z);
+                transform.position = new Vector3(transform.position.x + 0.05f, transform.position.y, transform.position.z);
             }
         }
         else if (turnedLeft)
         {
             if (transform.localPosition.x > -4)
             {
-                transform.position = new Vector3(transform.position.x - 0.1f, transform.position.y, transform.position.z);
+                transform.position = new Vector3(transform.position.x - 0.05f, transform.position.y, transform.position.z);
             }
         }
 

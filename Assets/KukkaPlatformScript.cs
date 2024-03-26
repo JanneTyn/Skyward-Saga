@@ -6,9 +6,11 @@ public class KukkaPlatformScript : MonoBehaviour
 {
     //public GameObject varsi;
     public GameObject kukka;
+    public Animator flowerAnimation;
     // Start is called before the first frame update
     void Start()
-    {
+    {       
+        //flowerAnimation = GetComponent<Animator>();
         //varsi = GameObject.Find("Varsi");
         //varsi = GameObject.Find("Varsi");
         //kukka = GameObject.Find("Kukka");
@@ -26,12 +28,16 @@ public class KukkaPlatformScript : MonoBehaviour
         {
 
             //varsi.SetActive(true);
-            kukka.SetActive(true);
+            flowerAnimation.GetComponent<Animator>().Play("dayOpen");
+            kukka.GetComponent<BoxCollider>().enabled = true;
+            //kukka.SetActive(true);
         }
         else
         {
             //varsi.SetActive(false);
-            kukka.SetActive(false);
+            flowerAnimation.GetComponent<Animator>().Play("dayClosed");
+            kukka.GetComponent<BoxCollider>().enabled = false;
+            //kukka.SetActive(false);
         }
     }
 }

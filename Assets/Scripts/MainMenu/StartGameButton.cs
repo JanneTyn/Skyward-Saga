@@ -7,6 +7,7 @@ public class StartGameButton : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Start");
+        Time.timeScale = 1;
     }
 }

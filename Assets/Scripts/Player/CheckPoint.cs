@@ -32,10 +32,15 @@ public class CheckPoint : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        vectorPoint = player.transform.position;
+        if (other.gameObject.tag == "Checkpoint")
+        {
+            vectorPoint = player.transform.position;
 
-        // play animaatio kivelle?
-        Debug.Log("Checkpoint");
+            // play animaatio kivelle?
+            Debug.Log("Checkpoint");
+
+        }
+        
     }
 
     void OnControllerColliderHit(ControllerColliderHit hit)

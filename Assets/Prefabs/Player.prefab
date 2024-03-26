@@ -548,15 +548,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 7162232960511247896}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34a5566ecf72cdd4d9c40667f4d80448, type: 3}
+  m_Script: {fileID: 11500000, guid: b911e1cdc9e3a324e89f2984a1af1c6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterController: {fileID: 105275227438824281}
-  _gravity: 0.3
+  characterController: {fileID: 5190814661467576901, guid: 24d9f95b386d6ee46bda3f86e628ac83,
+    type: 3}
+  _gravity: 0.5
   _playerspeedActual: 10
   _playerspeed: 8
   _jumpheight: 12
-  _yvelocity: 1
+  _yvelocity: 0
   ceilingHit: 0
   isGrounded: 0
 --- !u!114 &6584388805353277349

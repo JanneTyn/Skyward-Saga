@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     private bool sunActived = true;
     public bool ceilingHit = false;
     public bool isGrounded = false;
+    public bool rockCollision = false;
 
 
     // Start is called before the first frame update
@@ -42,7 +43,6 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         horizontalInput = Input.GetAxis("Horizontal");
-
         if (characterController.isGrounded == true)
         {          
             //Debug.Log("Isgrounded");
@@ -91,14 +91,21 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (Input.GetButton("Horizontal"))
         {
-            //Debug.Log("Walk");
-            if (charaAnimation.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("playerJump") == false)
+            if (characterController.isGrounded == true && rockCollision == true)
             {
-                charaAnimation.GetComponent<Animator>().Play("playerWalk");
+                charaAnimation.GetComponent<Animator>().Play("playerPush");
             }
-            else if (charaAnimation.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > charaAnimation.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length)
+            else
             {
-                charaAnimation.GetComponent<Animator>().Play("playerWalk");
+                //Debug.Log("Walk");
+                if (charaAnimation.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("playerJump") == false)
+                {
+                    charaAnimation.GetComponent<Animator>().Play("playerWalk");
+                }
+                else if (charaAnimation.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > charaAnimation.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length)
+                {
+                    charaAnimation.GetComponent<Animator>().Play("playerWalk");
+                }
             }
         }
         else

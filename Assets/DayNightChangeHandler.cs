@@ -5,6 +5,7 @@ using UnityEngine;
 public class DayNightChangeHandler : MonoBehaviour
 {
     private bool dayChanged = false;
+    private bool dayChanging = false;
     private bool sunActived = true;
     public DayNightChange daynight;
     public KukkaPlatformScript kukkaplatform;
@@ -27,9 +28,11 @@ public class DayNightChangeHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && dayChanging == false)
         {
             dayChanged = true;
+            dayChanging = true;
+            StartCoroutine(WaitDayChange());
         }
     }
 
@@ -64,5 +67,11 @@ public class DayNightChangeHandler : MonoBehaviour
             daynight.GetComponent<DayNightChange>().DayChange(sunActived);
             dayChanged = false;
         }
+    }
+
+    IEnumerator WaitDayChange()
+    {
+        yield return new WaitForSeconds(1);
+        dayChanging = false;
     }
 }

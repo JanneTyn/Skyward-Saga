@@ -24,6 +24,7 @@ public class ObstaclePush : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
+        
         Rigidbody rigidbody = hit.collider.attachedRigidbody;
         if (playermovement.isGrounded)
         {
@@ -42,7 +43,6 @@ public class ObstaclePush : MonoBehaviour
             }
         }                      
     }
-
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.tag == "Ground")

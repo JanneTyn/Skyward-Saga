@@ -9,9 +9,11 @@ public class DayNightChangeHandler : MonoBehaviour
     private bool sunActived = true;
     public DayNightChange daynight;
     public KukkaPlatformScript kukkaplatform;
+    public NightKukkaPlatformScript nightkukkaplatform;
     public SaniaisSiltaScript saniaissilta;
     public VineScript vine;
     public GameObject[] kukat;
+    public GameObject[] nightKukat;
     public GameObject[] sillat;
     public GameObject[] vines;
     public GameObject[] peikko;
@@ -20,6 +22,7 @@ public class DayNightChangeHandler : MonoBehaviour
     {
         //daynight.GetComponent<DayNightChange>().DayChange(sunActived);
         kukat = GameObject.FindGameObjectsWithTag("KukkaPlatform");
+        nightKukat = GameObject.FindGameObjectsWithTag("NightKukkaPlatform");
         sillat = GameObject.FindGameObjectsWithTag("SaniaisSilta");
         vines = GameObject.FindGameObjectsWithTag("Vine");
         peikko = GameObject.FindGameObjectsWithTag("Enemy");
@@ -51,7 +54,12 @@ public class DayNightChangeHandler : MonoBehaviour
             foreach (GameObject gameObject in kukat)
             {
                 gameObject.GetComponent<KukkaPlatformScript>().FlowerChange(sunActived);
-                Debug.Log(gameObject.transform.position);
+            }
+
+            foreach (GameObject gameObject in nightKukat)
+            {
+                Debug.Log("nightkukka flowechange");
+                gameObject.GetComponent<NightKukkaPlatformScript>().FlowerChange(sunActived);
             }
 
             foreach (GameObject gameObject in vines)
@@ -61,7 +69,7 @@ public class DayNightChangeHandler : MonoBehaviour
 
             foreach (GameObject gameObject in peikko)
             {
-                gameObject.GetComponent<PeikkoScript>().PeikkoFreeze(sunActived);
+                //gameObject.GetComponent<PeikkoScript>().PeikkoFreeze(sunActived);
             }
 
             daynight.GetComponent<DayNightChange>().DayChange(sunActived);

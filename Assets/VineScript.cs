@@ -9,6 +9,7 @@ public class VineScript : MonoBehaviour
     private bool canFade;
     private Color alphaColor;
     private float timeToFade = 1.0f;
+    public Animator vineAnimator;
     void Start()
     {
         alphaColor = gameObject.GetComponentInChildren<MeshRenderer>().material.color;
@@ -25,11 +26,13 @@ public class VineScript : MonoBehaviour
     {
         if (sunactivated)
         {
-            obj.SetActive(true);
+            //obj.SetActive(true);
+            vineAnimator.GetComponent<Animator>().Play("lehdetYlos");
         }
         else
         {
-            obj.SetActive(false);
+            //obj.SetActive(false);
+            vineAnimator.GetComponent<Animator>().Play("lehdetAlas");
         }
         //StartCoroutine(Fade());
     }

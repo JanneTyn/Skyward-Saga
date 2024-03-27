@@ -69,7 +69,7 @@ public class DayNightChangeHandler : MonoBehaviour
 
             foreach (GameObject gameObject in peikko)
             {
-                //gameObject.GetComponent<PeikkoScript>().PeikkoFreeze(sunActived);
+                gameObject.GetComponent<PeikkoScript>().PeikkoFreeze(sunActived);
             }
 
             daynight.GetComponent<DayNightChange>().DayChange(sunActived);

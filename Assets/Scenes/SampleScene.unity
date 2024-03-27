@@ -869,8 +869,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2311771889195ba48b9c927bfe2ccd3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  silta1: {fileID: 1925086702}
-  silta2: {fileID: 1865486537}
 --- !u!4 &387166761 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4784089775667466181, guid: 4ffbd670cb5b50747af34011eb559a5d,
@@ -1863,7 +1861,7 @@ PrefabInstance:
     - target: {fileID: 4784089775667466181, guid: 4ffbd670cb5b50747af34011eb559a5d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -53.95
+      value: -67.32
       objectReference: {fileID: 0}
     - target: {fileID: 4784089775667466181, guid: 4ffbd670cb5b50747af34011eb559a5d,
         type: 3}
@@ -2383,6 +2381,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d25df3f5503affb4caf06eb4acd8c26c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1331264374 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5183405319781438845, guid: 0b4a4b53131883f43802c4b7eca77b76,
+    type: 3}
+  m_PrefabInstance: {fileID: 95038361371039587}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1331264375 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5348234358839704243, guid: 0b4a4b53131883f43802c4b7eca77b76,
+    type: 3}
+  m_PrefabInstance: {fileID: 95038361371039587}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 794c782301521d646a58e07a96c0e20e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1361159752
 GameObject:
   m_ObjectHideFlags: 0
@@ -2815,8 +2831,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2311771889195ba48b9c927bfe2ccd3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  silta1: {fileID: 725712219}
-  silta2: {fileID: 546007975}
 --- !u!4 &1631574755
 Transform:
   m_ObjectHideFlags: 0
@@ -2882,8 +2896,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2311771889195ba48b9c927bfe2ccd3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  silta1: {fileID: 412946183}
-  silta2: {fileID: 54141989}
 --- !u!1 &1688197306
 GameObject:
   m_ObjectHideFlags: 0
@@ -3580,6 +3592,74 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &95038361371039587
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 875213874}
+    m_Modifications:
+    - target: {fileID: 3756646103661276296, guid: 0b4a4b53131883f43802c4b7eca77b76,
+        type: 3}
+      propertyPath: m_Name
+      value: NightKukkaPlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 5183405319781438845, guid: 0b4a4b53131883f43802c4b7eca77b76,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5183405319781438845, guid: 0b4a4b53131883f43802c4b7eca77b76,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5183405319781438845, guid: 0b4a4b53131883f43802c4b7eca77b76,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5183405319781438845, guid: 0b4a4b53131883f43802c4b7eca77b76,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5183405319781438845, guid: 0b4a4b53131883f43802c4b7eca77b76,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5183405319781438845, guid: 0b4a4b53131883f43802c4b7eca77b76,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5183405319781438845, guid: 0b4a4b53131883f43802c4b7eca77b76,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5183405319781438845, guid: 0b4a4b53131883f43802c4b7eca77b76,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5183405319781438845, guid: 0b4a4b53131883f43802c4b7eca77b76,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5183405319781438845, guid: 0b4a4b53131883f43802c4b7eca77b76,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0b4a4b53131883f43802c4b7eca77b76, type: 3}
 --- !u!4 &543450653497838845
 Transform:
   m_ObjectHideFlags: 0
@@ -3776,7 +3856,7 @@ PrefabInstance:
     - target: {fileID: 4784089775667466181, guid: 4ffbd670cb5b50747af34011eb559a5d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -68.79
+      value: -74.16
       objectReference: {fileID: 0}
     - target: {fileID: 4784089775667466181, guid: 4ffbd670cb5b50747af34011eb559a5d,
         type: 3}
@@ -4180,6 +4260,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8727930250671585662, guid: b7bcd4c59e42f0b4b9907ed86a1c218b,
         type: 3}
+      propertyPath: nightkukkaplatform
+      value: 
+      objectReference: {fileID: 1331264375}
+    - target: {fileID: 8727930250671585662, guid: b7bcd4c59e42f0b4b9907ed86a1c218b,
+        type: 3}
       propertyPath: kukat.Array.data[0]
       value: 
       objectReference: {fileID: 8492509181920820494}
@@ -4243,6 +4328,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1287419218}
+    - targetCorrespondingSourceObject: {fileID: 8579477162007459317, guid: b7bcd4c59e42f0b4b9907ed86a1c218b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1331264374}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7bcd4c59e42f0b4b9907ed86a1c218b, type: 3}
 --- !u!4 &6643972668525543270 stripped

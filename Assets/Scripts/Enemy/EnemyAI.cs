@@ -17,8 +17,10 @@ public class EnemyAI : MonoBehaviour
 
     void Start()
     {
+        
         anim = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
+        
         UpdateDestination();
     }
 

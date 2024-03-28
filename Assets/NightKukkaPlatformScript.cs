@@ -9,7 +9,8 @@ public class NightKukkaPlatformScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        flowerAnimation.GetComponent<Animator>().Play("nightClosed");
+        kukka.GetComponent<BoxCollider>().enabled = false;
     }
 
     // Update is called once per frame

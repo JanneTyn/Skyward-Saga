@@ -4,12 +4,29 @@ using UnityEngine;
 
 public class Collect : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    TMPro.TMP_Text text;
+    int count;
+
+    void Awake()
     {
-        if (other.tag == "Player")
-        {
-            Debug.Log("collected");
-            this.gameObject.SetActive(false);
-        }
+        text = GetComponent<TMPro.TMP_Text>();
+
+    }
+
+    void Start() => UpdateCount();
+    
+    void OnEnable() => Collectables.OnCollected += OnCollectibleCollected;
+    void OnDisable() => Collectables.OnCollected -= OnCollectibleCollected;
+
+    void OnCollectibleCollected()
+    {
+        count++;
+        UpdateCount();
+
+    }
+
+    void UpdateCount()
+    {
+        text.text = $"{count} / {Collectables.total}";
     }
 }

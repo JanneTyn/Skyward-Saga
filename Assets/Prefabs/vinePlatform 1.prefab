@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d25df3f5503affb4caf06eb4acd8c26c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obj: {fileID: 0}
+  obj: {fileID: 6662679112803519455}
   vineAnimator: {fileID: 8266323653324222624}
 --- !u!95 &8266323653324222624
 Animator:

@@ -28,11 +28,13 @@ public class VineScript : MonoBehaviour
         {
             //obj.SetActive(true);
             vineAnimator.GetComponent<Animator>().Play("lehdetYlos");
+            obj.GetComponent<BoxCollider>().enabled = true;
         }
         else
         {
             //obj.SetActive(false);
             vineAnimator.GetComponent<Animator>().Play("lehdetAlas");
+            obj.GetComponent<BoxCollider>().enabled = false;
         }
         //StartCoroutine(Fade());
     }

@@ -17,6 +17,7 @@ public class DayNightChangeHandler : MonoBehaviour
     public GameObject[] sillat;
     public GameObject[] vines;
     public GameObject[] peikko;
+    public GameObject[] kivet;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,7 @@ public class DayNightChangeHandler : MonoBehaviour
         sillat = GameObject.FindGameObjectsWithTag("SaniaisSilta");
         vines = GameObject.FindGameObjectsWithTag("Vine");
         peikko = GameObject.FindGameObjectsWithTag("Enemy");
+        kivet = GameObject.FindGameObjectsWithTag("RollingRock");
     }
 
     // Update is called once per frame
@@ -69,7 +71,12 @@ public class DayNightChangeHandler : MonoBehaviour
 
             foreach (GameObject gameObject in peikko)
             {
-                gameObject.GetComponent<PeikkoScript>().PeikkoFreeze(sunActived);
+                //gameObject.GetComponent<PeikkoScript>().PeikkoFreeze(sunActived);
+            }
+
+            foreach (GameObject gameObject in kivet)
+            {
+                gameObject.GetComponent<RollingRockPlayerCollision>().ResetRocks();
             }
 
             daynight.GetComponent<DayNightChange>().DayChange(sunActived);

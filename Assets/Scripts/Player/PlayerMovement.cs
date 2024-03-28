@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public CharacterController characterController;
     ControllerColliderHit playerCollider;
+    public GameObject groundCheck;
     public Animator charaAnimation;
     public float _gravity = 0.3f;
     public float _playerspeedActual = 10;
@@ -29,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     public bool ceilingHit = false;
     public bool isGrounded = false;
     public bool rockCollision = false;
+    public bool checkForGround = false;
 
 
     // Start is called before the first frame update
@@ -61,11 +63,30 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            jump = false;
-            if (doublejumpUsed == false && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)))
+            if (checkForGround == false)
             {
-                doublejump = true;
-            }           
+                if (doublejumpUsed == false && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)))
+                {
+                    doublejump = true;
+                }
+                else
+                {
+                    jump = false;
+                }
+            }
+            else if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                if (jumpPressed == false)
+                {
+                    jump = true;
+                    jumpPressed = true;
+                    Debug.Log("Jumpfail2");
+                }
+            }
+            else
+            {
+                //jump = false;
+            }
         }           
     }
 
@@ -77,10 +98,12 @@ public class PlayerMovement : MonoBehaviour
         if (transform.position.x > oldXPosition)
         {
             positiveXMovement = true;
+            groundCheck.transform.localPosition = new Vector3(-0.4f, -0.1f, 0f);
         }
         else if (transform.position.x < oldXPosition)
         {
             negativeXMovement = true;
+            groundCheck.transform.localPosition = new Vector3(0.4f, -0.1f, 0f);
         }
 
 
@@ -153,6 +176,11 @@ public class PlayerMovement : MonoBehaviour
             {
                 _playerspeedActual = _playerspeedActual / 2;
                 directionChanged = true;
+            }
+            if (jump)
+            {
+                _yvelocity = _jumpheight;
+                _gravityScaler = 0.25f;
             }
             if (doublejump)
             {

@@ -996,7 +996,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: "The realms of (?) is in danger. The Celestial Rivet holding up the Sky
+    Vault has fallen down here to this forest and it's your purpose to retrieve it.
+    The journey will be difficult but thankfully you were blessed by P\xE4iv\xE4t\xE4r
+    and Kuutar, the deities of night and day to help you on your passage. Control
+    the sun and moon by switching between day and night with (Spacebar) in order
+    to change the environment.\n\r\nNow you must hurry, or the sky will fall and
+    set everyone in to ruin!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 67e2912d31d43864783f62ce4d793922, type: 2}
   m_sharedMaterial: {fileID: -1697390273089637473, guid: 67e2912d31d43864783f62ce4d793922,
@@ -1024,8 +1030,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

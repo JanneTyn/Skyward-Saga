@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class Pause : MonoBehaviour
 {
     public GameObject pauseMenu;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -15,6 +18,7 @@ public class Pause : MonoBehaviour
         }
             
     }
+   
 
     
 }

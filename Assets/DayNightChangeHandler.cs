@@ -79,6 +79,8 @@ public class DayNightChangeHandler : MonoBehaviour
                 gameObject.GetComponent<RollingRockPlayerCollision>().ResetRocks();
             }
 
+            //gameObject.GetComponent<SkyBoxChange>().SkyBoxDayNightChange(sunActived);
+
             daynight.GetComponent<DayNightChange>().DayChange(sunActived);
             dayChanged = false;
         }

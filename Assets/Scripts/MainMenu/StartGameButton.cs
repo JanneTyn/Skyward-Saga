@@ -11,21 +11,20 @@ public class StartGameButton : MonoBehaviour
     private Transform logo;
     private Transform loadscene;
     private Transform prologueText;
+    private Transform backgroundAlpha;
     public void PlayGame()
     {
         startGame = transform.Find("Main Menu/Start Game");
         options = transform.Find("Main Menu/Options");
         quitGame = transform.Find("Main Menu/Quit to Menu");
         logo = transform.Find("Logo");
-        loadscene = transform.Find("LoadScene");
-        prologueText = transform.Find("PrologueText");
+        backgroundAlpha = transform.Find("backgroundAlpha");
 
         startGame.gameObject.SetActive(false);
         options.gameObject.SetActive(false);
         quitGame.gameObject.SetActive(false);
         logo.gameObject.SetActive(false);
-        prologueText.gameObject.SetActive(true);
-        loadscene.gameObject.SetActive(true);
+        backgroundAlpha.gameObject.SetActive(true);
         
     }
 }

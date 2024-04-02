@@ -48,6 +48,7 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _blendValue: 0
     - _time: 0
     m_Colors: []
   m_BuildTextureStacks: []

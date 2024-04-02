@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -20,8 +21,13 @@ public class DemoEnd : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(character.GetComponent<Transform>().position.x);
         if (character.GetComponent<Transform>().position.x > endXCoord) { end = true; }
+        if (end == false)
+        {
+            var color2 = this.GetComponent<Image>().color;
+            color2.a = 0f;
+            this.GetComponent<Image>().color = color2;
+        }
     }
 
     private void FixedUpdate()
@@ -54,7 +60,8 @@ public class DemoEnd : MonoBehaviour
 
     IEnumerator waitforEnd()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1);            
         SceneManager.LoadScene("MainMenu");
+        end = false;
     }
 }

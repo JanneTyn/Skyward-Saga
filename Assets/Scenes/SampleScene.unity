@@ -1104,6 +1104,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 412946183}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &501320907 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7803267486443521340, guid: c28a56946c8d9b4499d5bbec9dce558b,
+    type: 3}
+  m_PrefabInstance: {fileID: 5571829622312038792}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &546007975
 GameObject:
   m_ObjectHideFlags: 0
@@ -4448,6 +4454,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8054887626012078698, guid: c28a56946c8d9b4499d5bbec9dce558b,
+        type: 3}
+      propertyPath: rockdoor
+      value: 
+      objectReference: {fileID: 501320907}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

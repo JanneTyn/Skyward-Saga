@@ -13,8 +13,16 @@ public class Collect : MonoBehaviour
 
     }
 
+
     void Start() => UpdateCount();
-    
+
+    void Update()
+    {
+        if (Collectables.total >= 7)
+        {
+            text.text = $"{count} / {7}";
+        }
+    }
     void OnEnable() => Collectables.OnCollected += OnCollectibleCollected;
     void OnDisable() => Collectables.OnCollected -= OnCollectibleCollected;
 

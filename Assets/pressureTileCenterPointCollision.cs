@@ -29,8 +29,9 @@ public class pressureTileCenterPointCollision : MonoBehaviour
             vineAnimator.GetComponent<Animator>().Play("lehdetAlas");
             rockonTile.time = 0.2f;
             rockonTile.Play();
-            StartCoroutine(doorDown());
+           //StartCoroutine(doorDown());
             //vinePlatform.SetActive(false);
+            rockdoor.SetActive(false);
         }
     }
 
@@ -40,8 +41,9 @@ public class pressureTileCenterPointCollision : MonoBehaviour
         {
             Debug.Log("Kivi poissa");
             vineAnimator.GetComponent<Animator>().Play("lehdetYlos");
-            StartCoroutine(doorUp());
+           // StartCoroutine(doorUp());
             //vinePlatform.SetActive(true);
+            rockdoor.SetActive(true);
         }
     }
 

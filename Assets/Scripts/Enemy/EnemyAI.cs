@@ -31,7 +31,7 @@ public class EnemyAI : MonoBehaviour
             
             IterateWayPointIndex();
             UpdateDestination();
-            anim.Play("armidle");
+            
             
 
         }
@@ -41,16 +41,18 @@ public class EnemyAI : MonoBehaviour
 
     void UpdateDestination()
     {
+        anim.Play("armidle");
         
         target = waypoints[waypointIndex].position;
         agent.SetDestination(target);
-        anim.Play("kävely");
+        
 
     }
 
    
     void IterateWayPointIndex()
     {
+        
         waypointIndex++;
         if(waypointIndex== waypoints.Length)
         {

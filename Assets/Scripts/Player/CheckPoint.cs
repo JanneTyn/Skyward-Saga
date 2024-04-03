@@ -13,6 +13,8 @@ public class CheckPoint : MonoBehaviour
     [SerializeField] Vector3 vectorPoint;
 
     [SerializeField] float dead;
+    [SerializeField] float dead2;
+
     public CharacterController controller;
     public Image img;
 
@@ -23,6 +25,13 @@ public class CheckPoint : MonoBehaviour
     void Update()
     {
         if (player.transform.position.y < -dead)
+        {
+            controller.enabled = false;
+            player.transform.position = vectorPoint;
+            controller.enabled = true;
+            StartCoroutine(FadeCanvas(true));
+        }
+        if (player.transform.position.y > -dead2)
         {
             controller.enabled = false;
             player.transform.position = vectorPoint;

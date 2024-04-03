@@ -252,7 +252,6 @@ public class PlayerMovement : MonoBehaviour
             _gravity = _gravity + Time.deltaTime;
             if (_gravity > _gravityScaler) _gravity = _gravityScaler;
             _yvelocity -= _gravity;
-            //Debug.Log(_gravity);
 
             if ((characterController.collisionFlags & CollisionFlags.Above) != 0)
             {

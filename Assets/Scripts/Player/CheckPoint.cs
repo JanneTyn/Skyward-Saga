@@ -17,6 +17,8 @@ public class CheckPoint : MonoBehaviour
 
     public CharacterController controller;
     public Image img;
+    bool deadCheck = false;
+    private AudioSource checkpointSound;
 
     void Start()
     {
@@ -48,6 +50,15 @@ public class CheckPoint : MonoBehaviour
             // play animaatio kivelle?
             Debug.Log("Checkpoint");
 
+            if (gameObject.GetComponent<AudioSource>().isPlaying == false && deadCheck == false)
+            {
+                gameObject.GetComponent<AudioSource>().Play();
+            }
+            else
+            {
+                deadCheck = true;
+            }
+            
         }
         
     }
@@ -61,6 +72,7 @@ public class CheckPoint : MonoBehaviour
             controller.enabled = true;
             Debug.Log("kuolit");
             StartCoroutine(FadeCanvas(true));
+            deadCheck = true;
         }
     }
     IEnumerator FadeCanvas(bool fadeAway)

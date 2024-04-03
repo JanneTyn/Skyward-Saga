@@ -9,6 +9,7 @@ public class Collectables : MonoBehaviour
     public static event Action OnCollected;
     public static int total;
     public Animator coll;
+    private AudioSource collectSound;
 
     void Awake() => total++;
     
@@ -34,6 +35,8 @@ public class Collectables : MonoBehaviour
         IEnumerator CollDest()
         {
         coll.GetComponent<Animator>().Play("collcolle");
+        gameObject.GetComponent<AudioSource>().time = 0.2f;
+        gameObject.GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(0.5f);
             Destroy(gameObject);
 

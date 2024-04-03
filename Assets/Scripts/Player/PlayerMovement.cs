@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private bool positiveXMovement = false;
     private bool negativeXMovement = false;
     private bool jump = false;
+    private bool jumpUsed = false;
     private bool jumpPressed = false;
     private bool doublejump = false;
     private bool doublejumpUsed = false;
@@ -31,6 +32,10 @@ public class PlayerMovement : MonoBehaviour
     public bool isGrounded = false;
     public bool rockCollision = false;
     public bool checkForGround = false;
+    [SerializeField] AudioSource jumpSound;
+    [SerializeField] AudioSource doubleJumpSound;
+    [SerializeField] AudioSource landingSound;
+    [SerializeField] AudioSource playerWalk;
 
 
     // Start is called before the first frame update
@@ -80,7 +85,6 @@ public class PlayerMovement : MonoBehaviour
                 {
                     jump = true;
                     jumpPressed = true;
-                    Debug.Log("Jumpfail2");
                 }
             }
             else
@@ -104,6 +108,27 @@ public class PlayerMovement : MonoBehaviour
         {
             negativeXMovement = true;
             groundCheck.transform.localPosition = new Vector3(0.4f, -0.1f, 0f);
+        }
+
+        if (Input.GetButton("Horizontal") && characterController.isGrounded == true)
+        {
+            if (playerWalk.isPlaying == false)
+            {
+                playerWalk.time = 0.1f;
+                playerWalk.Play();
+            }
+
+            if (playerWalk.time > 0.6f)
+            {
+                playerWalk.Stop();
+            }
+        }
+        else
+        {
+            if (playerWalk.time > 0.6f)
+            {
+                playerWalk.Stop();
+            }
         }
 
 
@@ -149,17 +174,24 @@ public class PlayerMovement : MonoBehaviour
             {
                 _yvelocity = _jumpheight;
                 _gravityScaler = 0.25f;
+                jumpSound.time = 0.175f;
+                jumpSound.Play();
+                jumpUsed = true;
             }
             else
             {
                 _yvelocity = -1.0f;
                 _gravityScaler = 0.25f;
+                if (jumpUsed || doublejumpUsed)
+                {
+                    landingSound.Play();
+                }
+                jumpUsed = false;
             }
 
             if (doublejumpUsed)
             {
-                doublejumpUsed = false;
-                
+                doublejumpUsed = false;               
             }
 
             positiveXMovement = false;
@@ -181,6 +213,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 _yvelocity = _jumpheight;
                 _gravityScaler = 0.25f;
+                jumpSound.time = 0.175f;
+                jumpSound.Play();
             }
             if (doublejump)
             {
@@ -209,6 +243,8 @@ public class PlayerMovement : MonoBehaviour
                 _gravityScaler = 0.25f;
                 doublejumpUsed = true;
                 doublejump = false;
+                doubleJumpSound.time = 0.175f;
+                doubleJumpSound.Play();
             }
 
             //Debug.Log("in air");

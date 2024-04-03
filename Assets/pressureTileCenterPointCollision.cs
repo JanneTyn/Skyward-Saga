@@ -7,6 +7,7 @@ public class pressureTileCenterPointCollision : MonoBehaviour
 
     public GameObject vinePlatform;
     public Animator vineAnimator;
+    [SerializeField] AudioSource rockonTile;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +26,8 @@ public class pressureTileCenterPointCollision : MonoBehaviour
         {
             Debug.Log("Kivi kohteessa");
             vineAnimator.GetComponent<Animator>().Play("lehdetAlas");
+            rockonTile.time = 0.2f;
+            rockonTile.Play();
             //vinePlatform.SetActive(false);
         }
     }

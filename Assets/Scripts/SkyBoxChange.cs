@@ -24,6 +24,8 @@ public class SkyBoxChange : MonoBehaviour
     [SerializeField] Material fireflies;
     [SerializeField] Material lightShafts;
 
+    [SerializeField] Transform sunAndMoon;
+
     private void Start()
     {
         skybox.SetFloat("_blendValue", 0);
@@ -57,6 +59,8 @@ public class SkyBoxChange : MonoBehaviour
         Color color1 = fireflies.color;
         Color color2 = lightShafts.color;
 
+        Quaternion sunAndMoonRot = sunAndMoon.rotation;
+
         for (float t = 0; t < duration; t += duration * Time.deltaTime)
         {
             skybox.SetFloat("_blendValue", Mathf.Lerp(blendValue, targetBlend, t));
@@ -72,6 +76,8 @@ public class SkyBoxChange : MonoBehaviour
 
             fireflies.color = Color.Lerp(color1, new Color(color1.r, color1.g, color1.b, targetBlend), t);
             lightShafts.color = Color.Lerp(color2, new Color(color2.r, color2.g, color2.b, 1 - targetBlend), t);
+
+            sunAndMoon.rotation = Quaternion.Lerp(sunAndMoonRot, Quaternion.Euler(0, 0, sunAndMoonRot.eulerAngles.z - 180), t);
 
             yield return null;
         }

@@ -1124,6 +1124,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 138.3
       objectReference: {fileID: 0}
+    - target: {fileID: 4164218763932658484, guid: c7586cb430f45f14cacdb574f6e1b64f,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164218763932658484, guid: c7586cb430f45f14cacdb574f6e1b64f,
+        type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164218763932658484, guid: c7586cb430f45f14cacdb574f6e1b64f,
+        type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164218763932658484, guid: c7586cb430f45f14cacdb574f6e1b64f,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 950
+      objectReference: {fileID: 0}
     - target: {fileID: 4347850653257240778, guid: c7586cb430f45f14cacdb574f6e1b64f,
         type: 3}
       propertyPath: m_Colors.m_NormalColor.b

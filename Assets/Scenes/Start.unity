@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.32202223, g: 0.56650347, b: 0.99121004, a: 1}
+  m_IndirectSpecularColor: {r: 0.3786048, g: 0.6452756, b: 0.96484053, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -301,6 +301,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 903789458}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &22909460 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6483622647200660766, guid: e7dc3200ba73c64479f79e479e2bce51,
+    type: 3}
+  m_PrefabInstance: {fileID: 1529388582}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &27018310
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5275,17 +5281,17 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 2.8
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 0.8
+    m_Strength: 0.7
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -5319,8 +5325,8 @@ Light:
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
+  m_ColorTemperature: 5000
+  m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
@@ -5792,12 +5798,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_ReferenceResolution: {x: 800, y: 950}
+  m_ScreenMatchMode: 1
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -10870,6 +10876,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7b4bd77861ccfe4b8aeb54dacb9d87f, type: 3}
+--- !u!1 &729252186 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6483622647200660766, guid: e7dc3200ba73c64479f79e479e2bce51,
+    type: 3}
+  m_PrefabInstance: {fileID: 373654787}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &732419540
 GameObject:
   m_ObjectHideFlags: 0
@@ -16355,6 +16367,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ingame UI
       objectReference: {fileID: 0}
+    - target: {fileID: 8534832406128780365, guid: 7cfb5c815e35efa4ba70f286fcc29d15,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8534832406128780365, guid: 7cfb5c815e35efa4ba70f286fcc29d15,
+        type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8534832406128780365, guid: 7cfb5c815e35efa4ba70f286fcc29d15,
+        type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8534832406128780365, guid: 7cfb5c815e35efa4ba70f286fcc29d15,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 975
+      objectReference: {fileID: 0}
     - target: {fileID: 8731752569817609009, guid: 7cfb5c815e35efa4ba70f286fcc29d15,
         type: 3}
       propertyPath: m_Color.a
@@ -16868,6 +16900,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7b4bd77861ccfe4b8aeb54dacb9d87f, type: 3}
+--- !u!1 &1219972195 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6483622647200660766, guid: e7dc3200ba73c64479f79e479e2bce51,
+    type: 3}
+  m_PrefabInstance: {fileID: 1670988361}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1221076932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19404,6 +19442,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7b4bd77861ccfe4b8aeb54dacb9d87f, type: 3}
+--- !u!1 &1387347595 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6483622647200660766, guid: e7dc3200ba73c64479f79e479e2bce51,
+    type: 3}
+  m_PrefabInstance: {fileID: 1093799995013374398}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1390218913 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a72fddfa2192e4046bc2dbbb0b77413f,
@@ -19992,7 +20036,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8502192115893242491, guid: b40fec0792c2c8f4988c725206bc6760,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1861918061}
   m_SourcePrefab: {fileID: 100100000, guid: b40fec0792c2c8f4988c725206bc6760, type: 3}
 --- !u!1 &1434170936
 GameObject:
@@ -26100,6 +26148,35 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1433200181}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1861918061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861918060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52f272249b765b64184adb7f2fa48bed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1861918060}
+  checkPoints:
+  - {fileID: 1387347595}
+  - {fileID: 22909460}
+  - {fileID: 729252186}
+  - {fileID: 1219972195}
+  vectorPoint: {x: 0, y: 0, z: 0}
+  dead: 5
+  dead2: -60
+  controller: {fileID: 1861918065}
+  img: {fileID: 896033012}
+--- !u!143 &1861918065 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 6447567552967332853, guid: b40fec0792c2c8f4988c725206bc6760,
+    type: 3}
+  m_PrefabInstance: {fileID: 1433200181}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1866748626
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31785,12 +31862,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_ReferenceResolution: {x: 800, y: 950}
+  m_ScreenMatchMode: 1
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -32499,9 +32576,9 @@ SceneRoots:
   - {fileID: 1670505639}
   - {fileID: 1433200181}
   - {fileID: 9189092130968122438}
-  - {fileID: 1537148226}
   - {fileID: 1221076932}
   - {fileID: 84436304}
+  - {fileID: 1537148226}
   - {fileID: 1035113332}
   - {fileID: 1576273902}
   - {fileID: 1568015394}

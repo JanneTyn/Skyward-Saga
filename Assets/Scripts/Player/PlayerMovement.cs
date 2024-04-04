@@ -273,10 +273,7 @@ public class PlayerMovement : MonoBehaviour
                 isGrounded = true;
             }
         }
-        else
-        {
-            isGrounded = false;
-        }
+        else { isGrounded = false; }
 
         Vector3 velocity = direction * _playerspeedActual;
 

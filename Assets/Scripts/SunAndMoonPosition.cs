@@ -4,10 +4,19 @@ using UnityEngine;
 
 public class SunAndMoonPosition : MonoBehaviour
 {
-    [SerializeField] Transform posX;
+    Transform posX;
+
+    GameObject player;
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
 
     private void Update()
     {
+        posX = player.transform;
+
         transform.position = new Vector3(posX.position.x, transform.position.y, transform.position.z);
     }
 }

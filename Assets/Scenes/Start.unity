@@ -12105,8 +12105,8 @@ MonoBehaviour:
   nightTemp: 12000
   dayBrightness: 2.8
   nightBrightness: 0.9
-  dayShadowStr: 0.8
-  nightShadowStr: 1
+  dayShadowStr: 0.7
+  nightShadowStr: 0.9
   dayRot: {x: 50, y: -30, z: 0}
   nightRot: {x: 110, y: -30, z: 0}
   dayFog: {r: 0.34901962, g: 0.5921569, b: 0.67058825, a: 1}
